@@ -50,7 +50,7 @@ def get_partition_information(devices):
                 disk_array[device.path]['partitions'][partition.path]['fs'] = fs;
                 disk_array[device.path]['partitions'][partition.path]['first_block'] = partition.geometry.start;
                 disk_array[device.path]['partitions'][partition.path]['end_block'] = partition.geometry.end;
-                disk_array[device.path]['partitions'][partition.path]['length'] = partition.geometry.end;
+                disk_array[device.path]['partitions'][partition.path]['length'] = partition.geometry.end - partition.geometry.start;
                 disk_array[device.path]['partitions'][partition.path]['type'] = 'primary';
 
             if extended_partition:
@@ -63,7 +63,7 @@ def get_partition_information(devices):
                 disk_array[device.path]['partitions'][extended_partition.path]['fs'] = fs;
                 disk_array[device.path]['partitions'][extended_partition.path]['first_block'] = extended_partition.geometry.start;
                 disk_array[device.path]['partitions'][extended_partition.path]['end_block'] = extended_partition.geometry.end;
-                disk_array[device.path]['partitions'][extended_partition.path]['length'] = extended_partition.geometry.end;
+                disk_array[device.path]['partitions'][extended_partition.path]['length'] = extended_partition.geometry.end - extended_partition.geometry.start;
                 disk_array[device.path]['partitions'][extended_partition.path]['type'] = 'extended';
 
 
@@ -77,7 +77,7 @@ def get_partition_information(devices):
                 disk_array[device.path]['partitions'][partition.path]['fs'] = fs;
                 disk_array[device.path]['partitions'][partition.path]['first_block'] = partition.geometry.start;
                 disk_array[device.path]['partitions'][partition.path]['end_block'] = partition.geometry.end;
-                disk_array[device.path]['partitions'][partition.path]['length'] = partition.geometry.end;
+                disk_array[device.path]['partitions'][partition.path]['length'] = partition.geometry.end - partition.geometry.start;
                 disk_array[device.path]['partitions'][partition.path]['type'] = 'logical';
 
 
